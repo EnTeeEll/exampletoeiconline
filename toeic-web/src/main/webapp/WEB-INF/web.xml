@@ -4,6 +4,16 @@
 
     <display-name>ToeicOnline</display-name>
 
+    <!--SITEMESH DECORATOR-->
+    <filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>sitemesh</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!--End sitemesh -->
     <welcome-file-list>
         <welcome-file>ToeicOnline</welcome-file>
         <welcome-file>index.jsp</welcome-file>

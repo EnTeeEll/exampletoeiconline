@@ -1,3 +1,4 @@
+<%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%--
   Created by IntelliJ IDEA.
   User: LoveAutumn
@@ -8,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>This is Home page</title>
 </head>
 <body>
 

@@ -1,40 +1,16 @@
-package vn.myclass.core.persistence.entity;
+package vn.myclass.core.dto;
 
-import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.List;
 
-@Entity
-@Table(name = "user")
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserDTO implements Serializable {
+
     private Integer userId;
-    @Column(name = "name")
     private String name;
-    @Column(name = "password")
     private String password;
-    @Column(name = "fullname")
     private String fullName;
-    @Column(name = "createddate")
     private Timestamp createdDate;
-
-
-    @ManyToOne
-    @JoinColumn(name = "roleid")
-    private RoleEntity role;
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<CommentEntity> commentUserList;
-
-
-    public RoleEntity getRole() {
-        return role;
-    }
-
-    public void setRole(RoleEntity role) {
-        this.role = role;
-    }
+    private RoleDTO roleDTO;
 
     public Integer getUserId() {
         return userId;
@@ -74,5 +50,13 @@ public class UserEntity {
 
     public void setCreatedDate(Timestamp createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public RoleDTO getRoleDTO() {
+        return roleDTO;
+    }
+
+    public void setRoleDTO(RoleDTO roleDTO) {
+        this.roleDTO = roleDTO;
     }
 }

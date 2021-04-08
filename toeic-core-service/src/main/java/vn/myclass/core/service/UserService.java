@@ -1,4 +1,4 @@
 package vn.myclass.core.service;
 
-public interface TestService {
+public interface UserService {
 }

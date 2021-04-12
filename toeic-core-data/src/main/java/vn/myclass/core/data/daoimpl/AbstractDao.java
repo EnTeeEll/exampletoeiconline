@@ -18,6 +18,7 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID,T>
     private Class<T> persistenceClass;
 
     public AbstractDao() {
+        // get name of T. (T = Entity)
         this.persistenceClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
     }
 

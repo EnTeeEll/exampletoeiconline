@@ -11,7 +11,7 @@ public class UserBeanUtils {
         dto.setPassword(entity.getPassword());
         dto.setFullName(entity.getFullName());
         dto.setCreatedDate(entity.getCreatedDate());
-        dto.setRoleDTO(RoleBeanUtils.role2DTO(entity.getRole()));
+        dto.setRoleDTO(RoleBeanUtils.entity2DTO(entity.getRole()));
         return dto;
     }
 

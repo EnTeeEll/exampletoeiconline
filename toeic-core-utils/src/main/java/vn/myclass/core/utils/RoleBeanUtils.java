@@ -5,7 +5,7 @@ import vn.myclass.core.persistence.entity.RoleEntity;
 
 public class RoleBeanUtils {
 
-    public static RoleDTO role2DTO(RoleEntity entity) {
+    public static RoleDTO entity2DTO(RoleEntity entity) {
         RoleDTO dto = new RoleDTO();
         dto.setName(entity.getName());
         dto.setRoleId(entity.getRoleId());

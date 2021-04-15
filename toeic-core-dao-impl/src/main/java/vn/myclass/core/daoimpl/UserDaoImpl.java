@@ -32,7 +32,6 @@ public class UserDaoImpl extends AbstractDao<Integer, UserEntity> implements Use
         return entity;
     }
 
-
     public UserEntity findRoleByUser(String name, String password) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();

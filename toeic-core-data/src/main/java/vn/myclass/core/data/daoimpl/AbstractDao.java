@@ -21,7 +21,8 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID,T>
         // get name of T. (T = Entity)
         this.persistenceClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
     }
-
+        // Because AbstractDao return name of T but type of T is Class<T>
+        // so, we need convert it into String.
     public String getPersistenceClassName() {
         return persistenceClass.getSimpleName();
     }

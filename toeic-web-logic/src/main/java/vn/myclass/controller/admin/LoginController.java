@@ -3,7 +3,10 @@ package vn.myclass.controller.admin;
 import org.apache.log4j.Logger;
 import vn.myclass.command.UserCommand;
 import vn.myclass.core.dto.UserDTO;
+import vn.myclass.core.service.UserService;
+import vn.myclass.core.service.impl.UserServiceImpl;
 import vn.myclass.core.web.Utils.FormUtil;
+import vn.myclass.core.web.common.WebConstant;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,7 +34,24 @@ public class LoginController extends HttpServlet {
 
         UserCommand userCommand = FormUtil.populate(UserCommand.class,req);
         UserDTO pojo = userCommand.getPojo();
-
+        UserService userService = new UserServiceImpl();
+            try {
+                if(userService.isUserExist(pojo) != null) {
+                    if (userService.findRoleByUser(pojo) != null && userService.findRoleByUser(pojo).getRoleDTO() != null) {
+                        if (userService.findRoleByUser(pojo).getRoleDTO().getName().equals(WebConstant.ROLE_ADMIN)) {
+                            req.setAttribute(WebConstant.ALERT, WebConstant.TYPE_SUCCESS);
+                            req.setAttribute(WebConstant.MESSAGE_RESPONSE, "Admin Successfully!");
+                        } else if (userService.findRoleByUser(pojo).getRoleDTO().getName().equals(WebConstant.ROLE_USER)) {
+                            req.setAttribute(WebConstant.ALERT, WebConstant.TYPE_SUCCESS);
+                            req.setAttribute(WebConstant.MESSAGE_RESPONSE, "Successfully!");
+                        }
+                    }
+                }
+            } catch (NullPointerException e) {
+                log.error(e.getMessage(), e);
+                req.setAttribute(WebConstant.ALERT, WebConstant.TYPE_ERROR);
+                req.setAttribute(WebConstant.MESSAGE_RESPONSE, "Fail!");
+            }
         RequestDispatcher rd = req.getRequestDispatcher("/views/web/login.jsp");
         rd.forward(req,resp);
     }

@@ -1,17 +1,31 @@
-<%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: LoveAutumn
-  Date: 4/6/2021
-  Time: 1:13 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp" %>
+
 <html>
 <head>
-    <title>This is Home page</title>
-</head>
-<body>
+    <title><fmt:message key="label.home" bundle="${lang}"/></title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="<c:url value="/template/web/css/bootstrap.css"/>">
+    <link rel="stylesheet" href="<c:url value="/template/web/css/bootstrap-responsive.css"/>">
+    <link rel="stylesheet" href="<c:url value="/template/web/css/style.css"/>">
+    <!--Font-->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
+    <!-- SCRIPT
+    ============================================================-->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
+
+    <dec:head/>
+</head>
+
+<body>
+    <%@include file="/common/web/header.jsp"%>
+    
+    <div class="container">
+        <dec:body/>
+    </div>
+    
+    <%@include file="/common/web/footer.jsp"%>
 </body>
 </html>

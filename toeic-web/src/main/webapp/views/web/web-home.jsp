@@ -1,4 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
 <!--Carousel
 ==================================================-->
 
@@ -9,7 +19,7 @@
                 <div class="row">
                     <div class="span6">
                         <div class="carousel-caption">
-                            <h1>Example headline</h1>
+                            <h1>Thành Long</h1>
                             <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                             <a class="btn btn-large btn-primary" href="#">Sign up today</a>
                         </div>
@@ -107,3 +117,5 @@
 
 
 <!-- /.Row View -->
+</body>
+</html>

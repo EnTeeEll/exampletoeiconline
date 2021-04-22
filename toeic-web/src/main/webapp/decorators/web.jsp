@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="<c:url value="/template/web/css/bootstrap-responsive.css"/>">
     <link rel="stylesheet" href="<c:url value="/template/web/css/style.css"/>">
     <!--Font-->
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="<c:url value='/template/admin/font-awesome/4.5.0/css/font-awesome.min.css' />" />
     <!-- SCRIPT
     ============================================================-->
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<c:url value="http://code.jquery.com/jquery.js"/>"></script>
+    <script src="<c:url value="/template/web/js/bootstrap.min.js"/>"></script>
 
 
     <dec:head/>

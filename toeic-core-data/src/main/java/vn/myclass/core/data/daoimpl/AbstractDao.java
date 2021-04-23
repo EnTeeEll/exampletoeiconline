@@ -95,7 +95,8 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID,T>
         return result;
     }
 
-    public Object[] findByProperty(String property, Object value, String sortExpression, String sortDirection) {
+    public Object[] findByProperty(String property, Object value, String sortExpression, String sortDirection,
+                                   Integer offset, Integer limit) {
         List<T> list = new ArrayList<T>();
         Object totallItem = 0;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -115,6 +116,15 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID,T>
             if(value != null) {
                 query1.setParameter("value",value);
             }
+
+            // paging
+            if (offset != null && offset >= 0) {
+                query1.setFirstResult(offset);
+            }
+            if (limit != null && limit > 0) {
+                query1.setMaxResults(limit);
+            }
+
             list = query1.list();
 
             StringBuilder sql1 = new StringBuilder("select count(*) from ");

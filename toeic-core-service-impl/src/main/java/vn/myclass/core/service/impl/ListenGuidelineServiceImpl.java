@@ -14,7 +14,7 @@ public class ListenGuidelineServiceImpl implements ListenGuidelineService {
 
     private ListenGuidelineDao listenGuidelineDao = new ListenGuidelineDaoImpl();
 
-    public Object[] findListenGuidelineByProperties(String property, Object value, String sortExpression, String sortDirection,
+    /*public Object[] findListenGuidelineByProperties(String property, Object value, String sortExpression, String sortDirection,
                                                                     Integer offset, Integer limit) {
         List<ListenGuidelineDTO> result = new ArrayList<ListenGuidelineDTO>();
 
@@ -26,5 +26,5 @@ public class ListenGuidelineServiceImpl implements ListenGuidelineService {
         }
         objects[1] = result;
         return objects;
-    }
+    }*/
 }

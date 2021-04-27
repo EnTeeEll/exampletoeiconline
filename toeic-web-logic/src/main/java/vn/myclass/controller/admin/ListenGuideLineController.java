@@ -24,14 +24,14 @@ public class ListenGuideLineController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ListenGuidelineCommand command = new ListenGuidelineCommand();
+/*        ListenGuidelineCommand command = new ListenGuidelineCommand();
         command.setMaxPageItems(2);
         RequestUtil.initSearchBean(req, command);
         Object[] objects = guidelineService.findListenGuidelineByProperties(null,null, command.getSortExpression(), command.getSortDirection(),command.getFirstItem(),command.getMaxPageItems());
         command.setListResults((List<ListenGuidelineDTO>) objects[1]);
         command.setTotalItems((Integer.parseInt(objects[0].toString())));
 
-        req.setAttribute(WebConstant.LIST_ITEMS, command); // truyền ra view
+        req.setAttribute(WebConstant.LIST_ITEMS, command); // truyền ra view*/
         RequestDispatcher rd = req.getRequestDispatcher("/views/admin/listenguideline/list.jsp");
         rd.forward(req,resp);
     }

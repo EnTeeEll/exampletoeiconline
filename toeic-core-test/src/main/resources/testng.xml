@@ -3,7 +3,9 @@
 <suite name="TestAll">
     <test name="case1" >
         <classes>
-            <class name="vn.myclass.core.test.RoleTest" />
+<!--            <class name="vn.myclass.core.test.RoleTest" />-->
+            <class name="vn.myclass.core.test.ListenGuidelineTest"></class>
+<!--            <class name="vn.myclass.core.test.LoginTest"></class>-->
         </classes>
     </test>
 </suite>

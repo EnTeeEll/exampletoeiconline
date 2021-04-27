@@ -3,7 +3,7 @@ package vn.myclass.core.utils;
 import vn.myclass.core.dto.RoleDTO;
 import vn.myclass.core.persistence.entity.RoleEntity;
 
-public class RoleBeanUtils {
+public class RoleBeanUtil {
 
     public static RoleDTO entity2DTO(RoleEntity entity) {
         RoleDTO dto = new RoleDTO();

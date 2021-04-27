@@ -102,14 +102,14 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID,T>
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         try {
-            StringBuilder sql = new StringBuilder("from ");
+            StringBuilder sql = new StringBuilder("FROM ");
             sql.append(getPersistenceClassName());
             if(property != null && value != null){
-                sql.append(" where ").append(property).append("= :value");
+                sql.append(" WHERE ").append(property).append("= :value");
             }
             if(sortExpression != null && sortDirection != null){
-                sql.append(" other by ").append(sortExpression);
-                sql.append(" " + (sortDirection.equals(CoreConstant.SORT_ASC)?"asc":"desc"));
+                sql.append(" ORDER BY ").append(sortExpression);
+                sql.append(" " + (sortDirection.equals(CoreConstant.SORT_ASC)?"ASC":"DESC"));
             }
 
             Query query1 = session.createQuery(sql.toString());

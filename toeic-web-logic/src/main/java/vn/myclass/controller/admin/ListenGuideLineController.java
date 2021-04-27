@@ -3,6 +3,9 @@ package vn.myclass.controller.admin;
 
 import vn.myclass.command.ListenGuidelineCommand;
 import vn.myclass.core.dto.ListenGuidelineDTO;
+import vn.myclass.core.service.ListenGuidelineService;
+import vn.myclass.core.service.impl.ListenGuidelineServiceImpl;
+import vn.myclass.core.web.Utils.RequestUtil;
 import vn.myclass.core.web.common.WebConstant;
 
 import javax.servlet.RequestDispatcher;
@@ -17,28 +20,18 @@ import java.util.List;
 
 @WebServlet("/admin-guideline-listen-list.html")
 public class ListenGuideLineController extends HttpServlet {
+    private ListenGuidelineService guidelineService = new ListenGuidelineServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ListenGuidelineCommand command = new ListenGuidelineCommand();
+        command.setMaxPageItems(2);
+        RequestUtil.initSearchBean(req, command);
+        Object[] objects = guidelineService.findListenGuidelineByProperties(null,null, command.getSortExpression(), command.getSortDirection(),command.getFirstItem(),command.getMaxPageItems());
+        command.setListResults((List<ListenGuidelineDTO>) objects[1]);
+        command.setTotalItems((Integer.parseInt(objects[0].toString())));
 
-        List<ListenGuidelineDTO> listenGuidelineDTOS = new ArrayList<ListenGuidelineDTO>();
-        ListenGuidelineDTO dto = new ListenGuidelineDTO();
-        dto.setTitle("Bài HD nghe 1");
-        dto.setContent("Noi dung bai huong dan nghe 1");
-
-        ListenGuidelineDTO dto2 = new ListenGuidelineDTO();
-        dto.setTitle("Bài HD nghe 2");
-        dto.setContent("Noi dung bai huong dan nghe 2");
-        listenGuidelineDTOS.add(dto);
-        listenGuidelineDTOS.add(dto2);
-
-        command.setListResults(listenGuidelineDTOS);
-        command.setMaxPageItems(1);
-        command.setTotalItems(listenGuidelineDTOS.size());
-
-        req.setAttribute(WebConstant.LIST_ITEMS, command); // Đổ dữ liệu từ controller ra ngoài JSP
-
+        req.setAttribute(WebConstant.LIST_ITEMS, command); // truyền ra view
         RequestDispatcher rd = req.getRequestDispatcher("/views/admin/listenguideline/list.jsp");
         rd.forward(req,resp);
     }

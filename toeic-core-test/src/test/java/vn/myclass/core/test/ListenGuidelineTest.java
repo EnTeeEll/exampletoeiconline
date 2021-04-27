@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class ListenGuidelineTest {
 
-    ListenGuidelineDao listenGuidelineDao;
+/*    ListenGuidelineDao listenGuidelineDao;
     @BeforeTest
     public void initData() {
         listenGuidelineDao = new ListenGuidelineDaoImpl();
@@ -28,5 +28,5 @@ public class ListenGuidelineTest {
         property.put("title","Bai hd 3");
         property.put("content","Noi dung bai hd 3");
         Object[] objects = listenGuidelineDao.findByProperty(property,null,null,null,null);
-    }
+    }*/
 }

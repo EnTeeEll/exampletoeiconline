@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 @WebServlet("/admin-guideline-listen-list.html")
 public class ListenGuideLineController extends HttpServlet {
@@ -24,14 +25,18 @@ public class ListenGuideLineController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-/*        ListenGuidelineCommand command = new ListenGuidelineCommand();
+        ListenGuidelineCommand command = new ListenGuidelineCommand();
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("ApplicationResources");
+/*
         command.setMaxPageItems(2);
         RequestUtil.initSearchBean(req, command);
         Object[] objects = guidelineService.findListenGuidelineByProperties(null,null, command.getSortExpression(), command.getSortDirection(),command.getFirstItem(),command.getMaxPageItems());
         command.setListResults((List<ListenGuidelineDTO>) objects[1]);
         command.setTotalItems((Integer.parseInt(objects[0].toString())));
-
-        req.setAttribute(WebConstant.LIST_ITEMS, command); // truyền ra view*/
+*/
+        req.setAttribute(WebConstant.ALERT,WebConstant.TYPE_SUCCESS);
+        req.setAttribute(WebConstant.MESSAGE_RESPONSE, resourceBundle.getString("label.guideline.listen.add.success"));
+        req.setAttribute(WebConstant.LIST_ITEMS, command); // truyền ra view
         RequestDispatcher rd = req.getRequestDispatcher("/views/admin/listenguideline/list.jsp");
         rd.forward(req,resp);
     }

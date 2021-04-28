@@ -15,6 +15,15 @@ public class AbstractCommand<T> {
     private String sortExpression;
     private String sortDirection;
     private String messageResponse; // trả về thông báo
+    private String urlType;
+
+    public String getUrlType() {
+        return urlType;
+    }
+
+    public void setUrlType(String urlType) {
+        this.urlType = urlType;
+    }
 
     public T getPojo() {
         return pojo;

@@ -35,6 +35,8 @@
         <log4j.version>1.2.17</log4j.version>
         <beanutils.version>1.9.4</beanutils.version>
         <displaytag.version>1.2</displaytag.version>
+        <apache.fileupload.version>1.4</apache.fileupload.version>
+        <apache.commons.io.verson>2.8.0</apache.commons.io.verson>
     </properties>
 
     <dependencies>
@@ -117,6 +119,21 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!--Apache Commons Upload-->
+        <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${apache.fileupload.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${apache.commons.io.verson}</version>
+        </dependency>
+
 
     </dependencies>
 

@@ -27,7 +27,6 @@
                     </div>
                     </c:if>
                     <label class="block clearfix">
-
                         <span class="block input-icon input-icon-right">
                             <input type="text" class="form-control" placeholder="Username" name="pojo.name"/>
                             <i class="ace-icon fa fa-user"></i>
